@@ -1,0 +1,61 @@
+PROJECT: Heiler Healthcare Management System
+
+TYPE:
+Fully responsive healthcare SaaS (Doctor + Patient platform)
+
+TECH STACK:
+- React (Vite)
+- Tailwind CSS
+- React Router
+- Context API
+
+ARCHITECTURE:
+- Pages = route-level screens
+- Components = reusable UI system
+- Layouts = dashboard structure (sidebar + topbar)
+- Hooks = logic layer
+- Context = global state management
+
+UI SOURCE OF TRUTH:
+- Desktop Figma Design:
+ https://www.figma.com/design/oOBMNwzgPDhSOJUG57QCSv/Heiler?node-id=734-5875&p=f&t=vVNcYr0OAiqAVank-0
+
+- Mobile Figma Design:
+  https://www.figma.com/design/oOBMNwzgPDhSOJUG57QCSv/Heiler?node-id=0-1&p=f&t=P7SbfOnYiWUauDIX-0
+
+IMPORTANT:
+Both desktop and mobile designs represent the same system. Mobile is NOT a separate app — it is a responsive adaptation of the desktop UI.
+
+
+STATE MANAGEMENT:
+- Using React Context API
+
+IMPORTANT DATA RULE:
+This project uses MOCK DATA for development.
+All API responses, users, doctors, patients, and appointments are currently simulated using mockData.js.
+
+MOCK DATA FILE:
+src/Data/mockData.js
+
+RESPONSIVE DESIGN:
+- Desktop: sidebar + topbar layout
+- Mobile: drawer navigation + stacked layout
+
+CORE RULE:
+Never assume backend exists. Always use mock data unless explicitly replaced.
+
+FEATURE MODULES:
+- Authentication system
+- Doctor dashboard
+- Patient dashboard
+- Appointment system
+- Chat system (mocked)
+- Wallet system (mocked)
+
+
+CONTEXT NOTE:
+This project was moved into a Claude Project due to chat storage limits in previous conversations.
+
+All previous development history (architecture decisions, UI breakdown, and implementation logic) has been summarized and transferred into this workspace.
+
+This Project-context.txt is the single source of truth going forward.
