@@ -35,7 +35,7 @@ const ChangePassword = () => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Password">
       <div className="p-4 md:p-8">
         <div className="mb-6">
           <BackButton />

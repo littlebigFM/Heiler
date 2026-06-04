@@ -9,6 +9,8 @@ interface HeaderProps {
   showAvatar?: boolean;
   rightContent?: React.ReactNode;
   className?: string;
+  label?: string;
+  date?: string;
 }
 
 const Header = ({
@@ -19,14 +21,10 @@ const Header = ({
   showAvatar = true,
   rightContent,
   className,
+  label,
+  date,
 }: HeaderProps) => {
   const { user } = useApp();
-
-  const today = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    day: "numeric",
-    month: "short",
-  });
 
   // ───────────────── HOME HEADER ─────────────────
   if (variant === "home") {
@@ -44,9 +42,10 @@ const Header = ({
       >
         {/* LEFT */}
         <div>
-          <p className="text-xs text-gray-400">{today}</p>
+          <p className="text-xs text-gray-400">{date}</p>
           <h1 className="text-xl font-bold text-[#1B2922]">
-            Hi, {user?.firstName}
+            {/* Hi, {user?.firstName} */}
+            {label}
           </h1>
         </div>
         {/* RIGHT */}

@@ -14,10 +14,10 @@ const Cards = () => {
   const navigate = useNavigate();
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Cards">
       <div className="p-6">
         {/* TITLE */}
-        <h1
+        {/* <h1
           className="
             text-[28px]
             font-bold
@@ -26,7 +26,7 @@ const Cards = () => {
           "
         >
           Cards
-        </h1>
+        </h1> */}
 
         {/* CARDS */}
         <div className="flex flex-wrap gap-6">

@@ -5,9 +5,9 @@ import NotificationItem from "./NotificationItem";
 
 const Notifications = () => {
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Notifications">
       <div className="px-6 pt-4 pb-20">
-        <div className="mb-2">
+        {/* <div className="mb-2">
           <h1
             className="
             font-bold
@@ -19,7 +19,7 @@ const Notifications = () => {
           >
             Notifications
           </h1>
-        </div>
+        </div> */}
 
         {/* Mobile */}
 

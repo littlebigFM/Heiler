@@ -38,7 +38,7 @@ const Profile = () => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Profile">
       <div className="px-6 pt-4 md:py-6">
         <div className="mb-6">
           <BackButton />

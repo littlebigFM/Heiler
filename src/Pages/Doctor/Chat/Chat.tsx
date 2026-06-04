@@ -153,7 +153,7 @@ const Chat = () => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Chat">
       <div className="h-[calc(100vh-120px)] overflow-hidden flex w-full">
         {/* MOBILE RESPONSIVE WRAPPERS */}
         <div

@@ -9,7 +9,7 @@ const Wallet = () => {
 
   return (
     <div>
-      <DashboardLayout>
+      <DashboardLayout label="Wallet">
         <div className="mb-10 flex flex-col md:flex-row p-6 gap-6">
           <div className="w-full">
             <WalletCard

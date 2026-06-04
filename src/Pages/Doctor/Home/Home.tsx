@@ -8,12 +8,20 @@ import NotificationList from "../../../Components/Dashboard/Sections/Notificatio
 import TransactionHistory from "../../../Components/Dashboard/Sections/TransactionHistory";
 import { mockNotifications, mockTransactions } from "../../../Data/mockData";
 import { useNavigate } from "react-router-dom";
+import { useApp } from "../../../Context/AppContext";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { user } = useApp();
+
+  const today = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "short",
+  });
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label={`Hi, ${user?.firstName}!`} date={today}>
       <div className="p-6 grid grid-cols-1 min-[930px]:grid-cols-2 gap-6">
         <div>
           {" "}

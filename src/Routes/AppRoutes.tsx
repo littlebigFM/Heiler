@@ -38,12 +38,15 @@ import MedicalRecord from "../Pages/Doctor/Patients/MedicalRecord";
 import AddMoney from "../Pages/Doctor/Wallet/AddMoney";
 import Profile from "../Pages/More/Links/Profile";
 import ChangePassword from "../Pages/More/Links/ChangePassword";
-import Identification from "../Pages/More/Links/Identification";
+import Identification from "../Pages/More/Links/Identification/Identification";
 import Subscription from "../Pages/More/Links/Subscription";
 import ReferAFriend from "../Pages/More/Links/ReferAFriend";
 import More from "../Pages/More/More";
 import AddCards from "../Pages/Doctor/Card/AddCards";
 import Notifications from "../Pages/Doctor/Notifications/Notifications";
+import BVNVerification from "../Pages/More/Links/Identification/BVNVerification";
+import IDDocumentVerification from "../Pages/More/Links/Identification/IDDocumentVerification";
+import HomeAddressVerification from "../Pages/More/Links/Identification/HomeAddressVerification";
 // import AddCards from "../Pages/Doctor/Card/AddCards";
 // import ChatConversation from "../Pages/Doctor/Chat/ChatConversation";
 
@@ -234,6 +237,21 @@ const AppRoutes = () => {
             <Identification />
           </RoleRoute>
         }
+      />
+
+      <Route
+        path="/doctor/more/identification/bvn"
+        element={<BVNVerification />}
+      />
+
+      <Route
+        path="/doctor/more/identification/id-document"
+        element={<IDDocumentVerification />}
+      />
+
+      <Route
+        path="/doctor/more/identification/home-address"
+        element={<HomeAddressVerification />}
       />
 
       <Route

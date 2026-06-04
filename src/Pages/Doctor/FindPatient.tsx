@@ -21,7 +21,7 @@ const FindPatient = () => {
   );
 
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Patient">
       <div className="p-6 flex flex-col gap-6 max-[768px]:pb-12">
         <div className="flex flex-col min-[450px]:flex-row justify-between items-start min-[450px]:items-center ">
           <BackButton />
