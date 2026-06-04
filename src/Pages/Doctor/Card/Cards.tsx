@@ -4,11 +4,7 @@ import DashboardLayout from "../../../Components/Dashboard/Layout/DashboardLayou
 import { cardsData } from "./cardsData";
 import CardItem from "./CardItem";
 import AddCardBox from "./AddCardBox";
-
-// import CardItem from "./components/CardItem";
-// import AddCardBox from "./components/AddCardBox";
-
-// import { cards } from "./data/cards";
+import BackButton from "../../../Components/Common/BackButton";
 
 const Cards = () => {
   const navigate = useNavigate();
@@ -17,16 +13,7 @@ const Cards = () => {
     <DashboardLayout label="Cards">
       <div className="p-6">
         {/* TITLE */}
-        {/* <h1
-          className="
-            text-[28px]
-            font-bold
-            text-[#1B2922]
-            mb-8
-          "
-        >
-          Cards
-        </h1> */}
+        <BackButton />
 
         {/* CARDS */}
         <div className="flex flex-wrap gap-6">

@@ -63,7 +63,7 @@ const DashboardLayout = ({
         />
 
         {/* PAGE */}
-        <main className=" flex-1">{children}</main>
+        <main className="max-[768px]:mb-20 flex-1">{children}</main>
       </div>
 
       {/* MOBILE NAV */}

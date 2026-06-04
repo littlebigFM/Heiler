@@ -39,7 +39,7 @@ import AddMoney from "../Pages/Doctor/Wallet/AddMoney";
 import Profile from "../Pages/More/Links/Profile";
 import ChangePassword from "../Pages/More/Links/ChangePassword";
 import Identification from "../Pages/More/Links/Identification/Identification";
-import Subscription from "../Pages/More/Links/Subscription";
+import Subscription from "../Pages/More/Links/Subscription/Subscription";
 import ReferAFriend from "../Pages/More/Links/ReferAFriend";
 import More from "../Pages/More/More";
 import AddCards from "../Pages/Doctor/Card/AddCards";

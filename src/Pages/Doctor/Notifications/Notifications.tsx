@@ -1,3 +1,4 @@
+import BackButton from "../../../Components/Common/BackButton";
 import DashboardLayout from "../../../Components/Dashboard/Layout/DashboardLayout";
 import { notification } from "./notification";
 // import { notification } from "./notification";
@@ -7,20 +8,7 @@ const Notifications = () => {
   return (
     <DashboardLayout label="Notifications">
       <div className="px-6 pt-4 pb-20">
-        {/* <div className="mb-2">
-          <h1
-            className="
-            font-bold
-            text-[20px]
-              md:text-[28px]
-              md:font-bold
-              text-[#1E1E1E]
-            "
-          >
-            Notifications
-          </h1>
-        </div> */}
-
+        <BackButton />
         {/* Mobile */}
 
         <div
