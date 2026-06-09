@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { useApp } from "../../Context/AppContext";
 import { Button, Input, Checkbox } from "../../Components/Props";
 import PageWrapper from "../../Components/Common/PageWrapper";
+import AuthHeader from "../../Components/Common/AuthHeader";
+
+// import PasswordStrength from "../../Components/Common/PasswordStrength";
+import { validatePassword } from "../../utils/passwordValidator";
+
 import type {
   SetPasswordForm,
   RegisterStep1Form,
@@ -12,33 +17,15 @@ import type {
   RegisterStep3Form,
   AppUser,
 } from "../../types";
-import AuthHeader from "../../Components/Common/AuthHeader";
 import img from "../../assets/Images/img6.png";
 import img2 from "../../assets/Images/img5.png";
+import PasswordStrength from "../../Components/Props/PasswordStrength";
 
-// interface StepDotsProps {
-//   totalSteps: number;
-//   currentStep: number;
-// }
-
-// const StepDots = ({ totalSteps, currentStep }: StepDotsProps) => (
-//   <div className="flex gap-1.5 items-center mb-5">
-//     {Array.from({ length: totalSteps }).map((_, i) => (
-//       <div
-//         key={i}
-//         className={`h-2 rounded-full transition-all duration-300 ${
-//           i === currentStep - 1 ? "w-6 bg-[#008847]" : "w-2 bg-gray-300"
-//         }`}
-//       />
-//     ))}
-//   </div>
-// );
-
-// ✅ MOVED OUT
 interface FormBodyProps {
   form: SetPasswordForm;
   errors: Partial<Record<keyof SetPasswordForm, string>>;
   loading: boolean;
+  isPasswordValid: boolean;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleCreateAccount: () => void;
   setForm: React.Dispatch<React.SetStateAction<SetPasswordForm>>;
@@ -48,6 +35,7 @@ const FormBody = ({
   form,
   errors,
   loading,
+  isPasswordValid,
   handleChange,
   handleCreateAccount,
   setForm,
@@ -58,15 +46,19 @@ const FormBody = ({
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, ease: "easeOut" }}
   >
-    <Input
-      type="password"
-      name="password"
-      value={form.password}
-      onChange={handleChange}
-      placeholder="Password"
-      error={errors.password}
-      className="bg-[#F2FFF9]"
-    />
+    <div>
+      <Input
+        type="password"
+        name="password"
+        value={form.password}
+        onChange={handleChange}
+        placeholder="Password"
+        error={errors.password}
+        className="bg-[#F2FFF9]"
+      />
+      {/* 🚀 REAL-TIME STRENGTH CHECKER */}
+      <PasswordStrength password={form.password} />
+    </div>
 
     <Input
       type="password"
@@ -101,10 +93,14 @@ const FormBody = ({
     </div>
 
     <div className="pt-2">
+      {/* 🔒 AUTO-DISABLE UNTIL PASSWORD MATRIX AND TERMS ARE CHECKED */}
       <Button
         variant="primary"
         label="Create Account"
         loading={loading}
+        disabled={
+          !isPasswordValid || !form.confirmPassword || !form.acceptTerms
+        }
         onClick={handleCreateAccount}
       />
     </div>
@@ -118,9 +114,6 @@ const SetPassword = () => {
   const { role, register } = useApp();
   const isDoctor = role === "doctor";
 
-  const totalSteps = isDoctor ? 4 : 3;
-  const currentStep = isDoctor ? 4 : 3;
-
   const [form, setForm] = useState<SetPasswordForm>({
     password: "",
     confirmPassword: "",
@@ -133,9 +126,11 @@ const SetPassword = () => {
   >({});
   const [loading, setLoading] = useState(false);
 
+  // DYNAMICALLY CHECK VALIDATION RULES ON TYPING
+  const { isValid: isPasswordValid } = validatePassword(form.password);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-
     setForm((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name as keyof SetPasswordForm]) {
@@ -147,8 +142,8 @@ const SetPassword = () => {
     const errs: Partial<Record<keyof SetPasswordForm, string>> = {};
 
     if (!form.password) errs.password = "Password is required.";
-    else if (form.password.length < 6)
-      errs.password = "Password must be at least 6 characters.";
+    else if (!isPasswordValid)
+      errs.password = "Password does not meet validation criteria rules.";
 
     if (!form.confirmPassword)
       errs.confirmPassword = "Please confirm your password.";
@@ -171,14 +166,13 @@ const SetPassword = () => {
 
     setLoading(true);
 
+    // RESTORED: Pull previous steps out of temporary session memory
     const step1 = JSON.parse(
       sessionStorage.getItem("heiler_reg_step1") ?? "{}",
     ) as RegisterStep1Form;
-
     const step2 = JSON.parse(
       sessionStorage.getItem("heiler_reg_step2") ?? "{}",
     ) as RegisterStep2Form;
-
     const step3 = isDoctor
       ? (JSON.parse(
           sessionStorage.getItem("heiler_reg_step3") ?? "{}",
@@ -235,7 +229,7 @@ const SetPassword = () => {
 
   return (
     <PageWrapper>
-      {/* MOBILE */}
+      {/* ── MOBILE SCREEN VIEW ── */}
       <div className="max-w-107 mx-auto flex flex-col min-h-screen bg-white md:hidden">
         <AuthHeader title="Set up your password." imgSrc={img} />
 
@@ -244,6 +238,7 @@ const SetPassword = () => {
             form={form}
             errors={errors}
             loading={loading}
+            isPasswordValid={isPasswordValid}
             handleChange={handleChange}
             handleCreateAccount={handleCreateAccount}
             setForm={setForm}
@@ -251,7 +246,7 @@ const SetPassword = () => {
         </div>
       </div>
 
-      {/* DESKTOP */}
+      {/* ── DESKTOP SCREEN VIEW ── */}
       <div
         className="hidden md:flex min-h-screen items-center justify-center relative"
         style={{
@@ -263,12 +258,12 @@ const SetPassword = () => {
         <div className="absolute inset-0 bg-black/40" />
 
         <motion.div className="relative z-10 bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 px-8 pt-8 pb-10">
-          <AuthHeader title="Set up your password." imgSrc={img} />{" "}
-          {/* <StepDots totalSteps={totalSteps} currentStep={currentStep} /> */}
+          <AuthHeader title="Set up your password." imgSrc={img} />
           <FormBody
             form={form}
             errors={errors}
             loading={loading}
+            isPasswordValid={isPasswordValid}
             handleChange={handleChange}
             handleCreateAccount={handleCreateAccount}
             setForm={setForm}

@@ -41,11 +41,11 @@ interface PhoneFieldProps {
 const PhoneField = ({ form, errors, handleChange }: PhoneFieldProps) => (
   <div className="flex flex-col gap-1.5 w-full">
     <div
-      className={`flex items-center gap-[10px] h-14 rounded ${
+      className={`flex items-center gap-2.5 h-14 rounded ${
         errors.phone ? "border border-red-500" : "border-none"
       }`}
     >
-      <div className="flex bg-[#F2FFF9] rounded-[8px] border border-[#C2C8D099] items-center gap-1.5 px-3 h-full">
+      <div className="flex bg-[#F2FFF9] rounded-lg border border-[#C2C8D099] items-center gap-1.5 px-3 h-full">
         <span>🇳🇬</span>
         <select
           name="countryCode"
@@ -68,7 +68,7 @@ const PhoneField = ({ form, errors, handleChange }: PhoneFieldProps) => (
         value={form.phone}
         onChange={handleChange}
         placeholder="8023456789"
-        className=" rounded-[8px] border border-[#C2C8D099] flex-1 h-full px-3 bg-[#F2FFF9] outline-none text-sm"
+        className=" rounded-lg border border-[#C2C8D099] flex-1 h-full px-3 bg-[#F2FFF9] outline-none text-sm"
       />
     </div>
 
@@ -101,12 +101,12 @@ const GenderToggle = ({ form, errors, selectGender }: GenderToggleProps) => (
             type="button"
             onClick={() => selectGender(val)}
             className={`flex items-center gap-2 ${
-              active ? "text-[#008847]" : "text-gray-600"
+              active ? "text-primary" : "text-gray-600"
             }`}
           >
-            <span className="w-5 h-5 border border-[#008847] rounded flex items-center justify-center">
+            <span className="w-5 h-5 border border-primary rounded flex items-center justify-center">
               {active && (
-                <span className="w-2.5 h-2.5 bg-[#008847] rounded-full" />
+                <span className="w-2.5 h-2.5 bg-primary rounded-full" />
               )}
             </span>
             {g}
@@ -190,7 +190,7 @@ const FormBody = ({
       Already have an account?{" "}
       <span
         onClick={() => navigate("/login")}
-        className="text-[#008847] font-semibold cursor-pointer"
+        className="text-primary font-semibold cursor-pointer"
       >
         Log in
       </span>
@@ -266,7 +266,7 @@ const Register2 = () => {
 
   return (
     <PageWrapper>
-      <div className="max-w-[428px] mx-auto flex flex-col min-h-screen bg-white md:hidden">
+      <div className="max-w-107 mx-auto flex flex-col min-h-screen bg-white md:hidden">
         <AuthHeader
           title="Create an Account"
           subtitle="Register to have access to the Dashboard."

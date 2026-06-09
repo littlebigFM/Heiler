@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FiCopy, FiCheck } from "react-icons/fi"; // Make sure to npm install react-icons
 import referralIllustration from "../../../assets/Images/refer.png"; // Replace with your actual asset path
 import DashboardLayout from "../../../Components/Dashboard/Layout/DashboardLayout";
+import BackButton from "../../../Components/Common/BackButton";
 
 const ReferAFriend = () => {
   // Replace this with your dynamic state logic or context value later
@@ -27,6 +28,8 @@ const ReferAFriend = () => {
   return (
     <DashboardLayout label="Refer a friend">
       <div className="p-6">
+        <BackButton />
+
         <div
           className=" border-2 p-6
         border-[#EAEAEA] max-w-107 mx-auto bg-white flex flex-col justify-between "
