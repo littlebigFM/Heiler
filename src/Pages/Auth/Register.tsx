@@ -164,7 +164,7 @@ const Register = () => {
   return (
     <PageWrapper>
       {/* ── MOBILE SCREEN VIEW ── */}
-      <div className="max-w-107 mx-auto flex flex-col gap-10 min-h-screen bg-white md:hidden">
+      <div className="max-w-107 mx-auto flex flex-col min-h-screen bg-white md:hidden">
         <AuthHeader
           title="Create an Account"
           subtitle="Register to have access to the Dashboard."
