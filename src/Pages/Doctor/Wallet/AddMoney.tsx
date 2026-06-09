@@ -4,7 +4,7 @@ import AddMoneyMobile from "./AddMoneyMobile";
 
 const AddMoney = () => {
   return (
-    <DashboardLayout>
+    <DashboardLayout label="Add money">
       <div className="hidden min-[768px]:block">
         <AddMoneyDesktop />
       </div>

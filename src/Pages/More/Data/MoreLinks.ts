@@ -8,30 +8,43 @@ import { PiSealCheck } from "react-icons/pi";
 import { TbLockCheck } from "react-icons/tb";
 
 export const MoreLinks = [
-  { label: "Profile", path: "/doctor/profile" },
+  { id: "profile", label: "Profile", path: "/doctor/profile" },
   {
+    id: "changepassword",
     label: "Change password",
     path: "/doctor/changepassword",
     icon: TbLockCheck,
   },
 
   {
+    id: "identification",
     label: "Identification",
     path: "/doctor/identification",
     icon: PiSealCheck,
   },
 
-  { label: "Subscription", path: "/doctor/subscription", icon: LuShield },
+  {
+    id: "subscription",
+    label: "Subscription",
+    path: "/doctor/subscription",
+    icon: LuShield,
+  },
 
   {
+    id: "notifications",
     label: "Notifications",
     path: "/doctor/notifications",
     icon: IoMdNotificationsOutline,
   },
 
-  { label: "Cards", path: "/doctor/cards", icon: FaCreditCard },
+  { id: "cards", label: "Cards", path: "/doctor/cards", icon: FaCreditCard },
 
-  { label: "Refer a friend", path: "/doctor/referral", icon: BsShare },
+  {
+    id: "referral",
+    label: "Refer a friend",
+    path: "/doctor/referral",
+    icon: BsShare,
+  },
 
-  { label: "Log out", path: "/doctor/settings", icon: GrLogout },
+  { id: "logout", label: "Log out", path: "#", icon: GrLogout, isLogout: true },
 ];

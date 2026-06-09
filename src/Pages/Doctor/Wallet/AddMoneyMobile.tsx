@@ -142,7 +142,7 @@ const AddMoneyMobile = () => {
               onClick={prevStep}
             />
             <p className="text-[16px] font-bold text-primary">
-              Choose payment method
+              Choose a payment method
             </p>
           </div>
 
@@ -207,7 +207,7 @@ const AddMoneyMobile = () => {
           {/* CONTENT */}
           <div className="pt-8 pb-4 text-center">
             <p className="text-[#1B2922] text-[18px] leading-7.5 mb-8">
-              A sum of
+              A sum of{" "}
               <span className="text-primary font-semibold capitalize">
                 {convertAmountToWords(amount)}
               </span>{" "}

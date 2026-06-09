@@ -163,7 +163,7 @@ const AddMoneyDesktop = () => {
                   text-primary
                 "
             >
-              Choose payment method
+              Choose a payment method
             </p>
           </div>
 

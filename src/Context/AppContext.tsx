@@ -161,10 +161,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const register = (userData: User) => setAuthUser(userData);
 
   const logout = () => {
-    setUser(null);
-    setRole(null);
+    sessionStorage.clear();
     localStorage.removeItem("heiler_user");
     localStorage.removeItem("heiler_role");
+    setUser(null);
+    setRole(null);
+    window.location.href = "/login";
   };
 
   //  Provider Value //
