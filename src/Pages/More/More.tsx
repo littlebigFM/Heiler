@@ -110,7 +110,7 @@ const More = () => {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="pt-2 px-4 flex flex-col gap-3"
+            className=" md:max-w-130 mx-auto pt-6 px-4 flex flex-col gap-3"
           >
             {MoreLinks.map((link) => {
               const IconComponent = link.icon;

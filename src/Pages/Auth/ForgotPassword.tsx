@@ -2,6 +2,7 @@
 import { useState, useCallback, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import { Button, Input } from "../../Components/Props";
 import AuthHeader from "../../Components/Common/AuthHeader";
 import PageWrapper from "../../Components/Common/PageWrapper";
@@ -171,6 +172,15 @@ const ForgotPassword = () => {
     setTimeout(() => {
       setLoading(false);
       setSent(true);
+      toast("Kindly check your mail and click on the link to reset your password", {
+        autoClose: 4000,
+        hideProgressBar: true,
+        style: {
+          backgroundColor: "#ffffff",
+          color: "#000000",
+          border: "1px solid #E5E7EB",
+        },
+      });
     }, 1000);
   }, [form]);
 

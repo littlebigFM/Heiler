@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +28,15 @@ const AddCards = () => {
 
   const handleSubmit = () => {
     console.log(formData);
+
+    toast("A new card has been added !", {
+      autoClose: 3500,
+      hideProgressBar: true,
+      style: {
+        backgroundColor: "var(--color-primary)",
+        color: "#ffffff",
+      },
+    });
 
     navigate("/doctor/cards");
   };

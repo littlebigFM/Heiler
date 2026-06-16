@@ -79,12 +79,12 @@ const Onboarding = () => {
             <img
               src={slides[current].image}
               alt={slides[current].title}
-              className="w-[260px] h-[240px] object-contain mb-12"
+              className="w-60 h-60 object-contain mb-12"
             />
             <h2 className="font-Roboto text-2xl font-semibold text-[#1B1B1B] leading-snug mb-4">
               {slides[current].title}
             </h2>
-            <p className="text-sm text-[#A7ADBE] leading-relaxed max-w-[280px]">
+            <p className="text-sm text-[#A7ADBE] leading-relaxed max-w-70">
               {slides[current].subtitle}
             </p>
           </motion.div>
@@ -131,14 +131,14 @@ const Onboarding = () => {
       items-center
       justify-center
       min-h-screen
-      max-w-[896px] m-auto
+      max-w-4xl m-auto
       "
       >
-        <div className="w-full relative flex items-center justify-center h-[280px] px-14">
+        <div className="w-full relative flex items-center justify-center h-70 px-14">
           {/* Left arrow */}
           <button
             onClick={prev}
-            className="absolute left-4  w-[40px] h-[40px] rounded-full border-[2px] border-[#008847] flex items-center justify-center text-[#008847] hover:bg-[#008847] hover:text-white transition-all duration-200"
+            className="absolute left-4  w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-200"
           >
             <FiArrowLeft size={30} />
           </button>
@@ -153,14 +153,14 @@ const Onboarding = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
-              className="h-[400px] w-[400px] object-contain"
+              className="h-100 w-100 object-contain"
             />
           </AnimatePresence>
 
           {/* Right arrow */}
           <button
             onClick={next}
-            className="absolute right-6 w-[40px] h-[40px] rounded-full border-[2px] border-[#008847] flex items-center justify-center text-[#008847] hover:bg-[#008847] hover:text-white transition-all duration-200"
+            className="absolute right-6 w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-200"
           >
             <FiArrowRight size={30} />
           </button>
@@ -181,8 +181,8 @@ const Onboarding = () => {
                   <div className="flex flex-col gap-1.5">
                     <div
                       className="
-                min-[520px]:w-[400px]
-                min-[800px]:w-[596px]
+                min-[520px]:w-100
+                min-[800px]:w-149
                 flex flex-col 
                 items-center
                 "
@@ -198,7 +198,7 @@ const Onboarding = () => {
                       >
                         {slides[current].title}
                       </h2>
-                      <p className="font-Roboto font-regular text-[20px] text-[#A7ADBE] leading-relaxed mb-6 text-center min-[520px]:w-[400px]">
+                      <p className="font-Roboto font-regular text-[20px] text-[#A7ADBE] leading-relaxed mb-6 text-center min-[520px]:w-100">
                         {slides[current].subtitle}
                       </p>
                     </div>
@@ -211,7 +211,7 @@ const Onboarding = () => {
                             onClick={() => setCurrent(i)}
                             className={`h-2 rounded-full cursor-pointer transition-all duration-300 ${
                               i === current
-                                ? "w-6 bg-[#008847]"
+                                ? "w-6 bg-primary"
                                 : "w-2 bg-gray-300"
                             }`}
                           />
@@ -239,8 +239,8 @@ const Onboarding = () => {
               >
                 <div
                   className="
-                min-[520px]:w-[400px]
-                min-[800px]:w-[596px]
+                min-[520px]:w-100
+                min-[800px]:w-149
                 flex flex-col 
                 items-center
                 "
@@ -256,7 +256,7 @@ const Onboarding = () => {
                   >
                     {slides[current].title}
                   </h2>
-                  <p className="font-Roboto font-regular text-[20px] text-[#A7ADBE] leading-relaxed mb-6 text-center min-[520px]:w-[400px]">
+                  <p className="font-Roboto font-regular text-[20px] text-[#A7ADBE] leading-relaxed mb-6 text-center min-[520px]:w-100">
                     {slides[current].subtitle}
                   </p>
                 </div>
@@ -269,7 +269,7 @@ const Onboarding = () => {
                         key={i}
                         onClick={() => setCurrent(i)}
                         className={`h-2 rounded-full cursor-pointer transition-all duration-300 ${
-                          i === current ? "w-6 bg-[#008847]" : "w-2 bg-gray-300"
+                          i === current ? "w-6 bg-primary" : "w-2 bg-gray-300"
                         }`}
                       />
                     ))}

@@ -9,6 +9,7 @@
 
 import AppRoutes from "./Routes/AppRoutes";
 import { AppProvider } from "./Context/AppContext";
+import { ToastContainer } from "react-toastify";
 
 // Global spinner keyframe for Button loading state
 const globalStyle = `
@@ -43,6 +44,16 @@ const App = () => {
     <AppProvider>
       <style>{globalStyle}</style>
       <AppRoutes />
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+      />
     </AppProvider>
   );
 };

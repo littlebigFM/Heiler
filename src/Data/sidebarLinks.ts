@@ -33,9 +33,9 @@ export const doctorSidebarLinks: SidebarLink[] = [
 ];
 
 export const patientSidebarLinks: SidebarLink[] = [
-  // { label: "Home", path: "/patient/home", icon: RiHome5Fill },
-  // { label: "Find Doctor", path: "/patient/find-doctor", icon: FiSearch },
-  // { label: "Chat", path: "/patient/chat", icon: FiMessageCircle },
-  // { label: "Wallet", path: "/patient/wallet", icon: FiCreditCard },
-  // { label: "Settings", path: "/patient/settings", icon: FiSettings },
+  { label: "Home", path: "/patient/home", icon: RiHome5Fill },
+  { label: "Find Doctor", path: "/patient/find-doctor", icon: FiSearch },
+  { label: "Chat", path: "/patient/chat", icon: FiMessageCircle },
+  { label: "Wallet", path: "/patient/wallet", icon: IoWallet }, // Reusing IoWallet for consistency across panels
+  { label: "Settings", path: "/patient/settings", icon: FiSettings },
 ];

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import BackButton from "../../../Components/Common/BackButton";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, Modal } from "../../../Components/Props";
@@ -12,6 +13,25 @@ const AddMoneyDesktop = () => {
   const [selectedCard, setSelectedCard] = useState(1);
   const [amount, setAmount] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const formatAmount = (value: string) => {
+    const parsed = Number(value);
+    if (!parsed || isNaN(parsed)) return "0";
+    return parsed.toLocaleString("en-NG");
+  };
+
+  const handleConfirmDeposit = () => {
+    toast(`₦${formatAmount(amount)} has been credited to your wallet.`, {
+      autoClose: 4000,
+      hideProgressBar: true,
+      style: {
+        backgroundColor: "var(--color-primary)",
+        color: "#ffffff",
+      },
+    });
+    setIsModalOpen(false);
+    setAmount("");
+  };
 
   // --- LOGIC: NUMBER TO WORDS CONVERSION ---
   const convertAmountToWords = (numString: string): string => {
@@ -296,7 +316,11 @@ const AddMoneyDesktop = () => {
             </p>
 
             {/* BUTTON */}
-            <Button label="Proceed" className="mb-5 rounded-[15px]" />
+            <Button
+              label="Proceed"
+              className="mb-5 rounded-[15px]"
+              onClick={handleConfirmDeposit}
+            />
 
             {/* CANCEL */}
             <Button

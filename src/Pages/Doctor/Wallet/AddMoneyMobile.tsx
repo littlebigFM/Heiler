@@ -1,6 +1,7 @@
 import { FiArrowLeft, FiPlus, FiX } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useState } from "react";
 import { Button, Input, Modal } from "../../../Components/Props";
 import { paymentMethods } from "./Data/paymentMethod";
@@ -15,6 +16,27 @@ const AddMoneyMobile = () => {
   const [step, setStep] = useState(1);
 
   const navigate = useNavigate();
+
+  const formatAmount = (value: string) => {
+    const parsed = Number(value);
+    if (!parsed || isNaN(parsed)) return "0";
+    return parsed.toLocaleString("en-NG");
+  };
+
+  const handleConfirmDeposit = () => {
+    toast(`₦${formatAmount(amount)} has been credited to your wallet.`, {
+      autoClose: 4000,
+      hideProgressBar: true,
+      style: {
+        backgroundColor: "var(--color-primary)",
+        color: "#ffffff",
+      },
+    });
+    setIsModalOpen(false);
+    setAmount("");
+    setSelectedCard(0);
+    setStep(1);
+  };
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
@@ -215,7 +237,11 @@ const AddMoneyMobile = () => {
             </p>
 
             {/* BUTTONS */}
-            <Button label="Proceed" className="mb-5 rounded-[15px]" />
+            <Button
+              label="Proceed"
+              className="mb-5 rounded-[15px]"
+              onClick={handleConfirmDeposit}
+            />
 
             <Button
               onClick={() => setIsModalOpen(false)}

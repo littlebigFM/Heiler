@@ -79,7 +79,7 @@ const Success = () => {
         </motion.div>
 
         <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs font-inter whitespace-nowrap">
-          © 2024 Heiler &nbsp;·&nbsp; Developed by FinSwitch Technologies
+          © 2024 Heiler &nbsp;·&nbsp; Developed by FireSwitch Technologies
         </p>
       </div>
     </PageWrapper>

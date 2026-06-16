@@ -25,12 +25,11 @@ const RoleSelect: FC<RoleSelectProps> = () => {
     // <PageWrapper>
     <div
       className="
-    max-w-[896px] m-auto 
+    max-w-4xl m-auto 
     flex flex-col
     items-center justify-center 
-    min-h-screen 
+    min-h-screen
     px-10 pt-20 pb-15
-    px-4
     min-[350px]:px-8
     gap-8
     "
@@ -57,14 +56,14 @@ const RoleSelect: FC<RoleSelectProps> = () => {
           variant="outline"
           label="Doctor"
           onClick={() => handleSelect("doctor")}
-          className="min-[500px]:w-[440px] w-full"
+          className="min-[500px]:w-110 w-full"
         />
         <Button
           // width={440}
           variant="primary"
           label="Patient"
           onClick={() => handleSelect("patient")}
-          className="min-[500px]:w-[440px] w-full"
+          className="min-[500px]:w-110 w-full"
         />
       </motion.div>
     </div>
